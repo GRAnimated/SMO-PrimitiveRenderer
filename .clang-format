@@ -1,0 +1,33 @@
+---
+AccessModifierOffset: '-4'
+AlignAfterOpenBracket: Align
+AllowShortFunctionsOnASingleLine: Inline
+AllowShortIfStatementsOnASingleLine: Never
+AlwaysBreakAfterDefinitionReturnType: None
+AlwaysBreakAfterReturnType: None
+AlwaysBreakTemplateDeclarations: 'Yes'
+BreakBeforeBraces: Attach
+ColumnLimit: '250'
+CommentPragmas: '^ (IWYU pragma:|NOLINT)'
+CompactNamespaces: 'false'
+ConstructorInitializerIndentWidth: '4'
+ContinuationIndentWidth: '4'
+IndentWidth: '4'
+Language: Cpp
+MaxEmptyLinesToKeep: '1'
+NamespaceIndentation: None
+ObjCBlockIndentWidth: '4'
+PenaltyBreakBeforeFirstCallParameter: '19'
+PenaltyBreakComment: '300'
+PenaltyBreakFirstLessLess: '120'
+PenaltyBreakString: '1000'
+PenaltyExcessCharacter: '1000000'
+PenaltyReturnTypeOnItsOwnLine: '60'
+PointerAlignment: Right
+SortIncludes: 'true'
+SpaceBeforeParens: ControlStatements
+SpacesBeforeTrailingComments: '1'
+SpacesInAngles: 'false'
+TabWidth: '4'
+UseTab: Never
+

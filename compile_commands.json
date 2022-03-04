@@ -1,0 +1,7 @@
+[
+    {
+      "directory": "D:\\Projects\\Mods\\Odyssey\\CodeMods\\SMO-ChaosMod\\",
+      "command": "D:\\Projects\\Research\\cttt-decomp\\deps\\Compilers\\NX\\bin\\nx-clang++.exe -x c++ -std=gnu++14 -fno-common -fno-short-enums -fdata-sections -mcpu=cortex-a57+fp+simd+crypto+crc -O3 -fno-exceptions -fomit-frame-pointer -Wall -I Include -I include/sead -I deps/Common/Configs/Targets/NX-NXFP2-a64/Include -c ",
+      "file": "whatever.c"
+    }
+  ]
