@@ -1,19 +1,20 @@
 #include "drawer.h"
 
-bool tryDrawAreaGroup(al::Scene *curScene, char const *area, bool isDrawSolid = false, sead::Color4f wire = sead::Color4f(0, 255, 0, .1), sead::Color4f solid = sead::Color4f(0, 255, 0, .1), sead::Color4f cyl = sead::Color4f(0, 255, 0, .1)) {
+bool tryDrawAreaGroup(al::Scene* curScene, char const* area, bool isDrawSolid = false, sead::Color4f wire = sead::Color4f(0, 255, 0, .1), sead::Color4f solid = sead::Color4f(0, 255, 0, .1), sead::Color4f cyl = sead::Color4f(0, 255, 0, .1))
+{
     if (!curScene)
         return false;
-    sead::PrimitiveRenderer *renderer = sead::PrimitiveRenderer::instance();
+    sead::PrimitiveRenderer* renderer = sead::PrimitiveRenderer::instance();
     if (!renderer)
         return false;
 
-    al::AreaObjGroup *group = al::getSceneAreaObjDirector(curScene)->getAreaObjGroup(area);
+    al::AreaObjGroup* group = al::getSceneAreaObjDirector(curScene)->getAreaObjGroup(area);
     if (!group)
         return false;
     for (int i = 0; i < group->mMaxCount; i++) {
         renderer->begin();
-        al::AreaObj *area = group->mAreas[i];
-        const char *shapeType;
+        al::AreaObj* area = group->mAreas[i];
+        const char* shapeType;
         al::tryGetAreaObjStringArg(&shapeType, area, "ModelName");
 
         sead::Vector3f scale = area->mAreaShape->mScale;
@@ -23,18 +24,18 @@ bool tryDrawAreaGroup(al::Scene *curScene, char const *area, bool isDrawSolid = 
         pos.z = area->mAreaMtx.m[2][3];
         renderer->setModelMatrix(area->mAreaMtx);
 
-        al::PlayerHolder *pHolder = al::getScenePlayerHolder(curScene);
-        PlayerActorHakoniwa *player = al::tryGetPlayerActor(pHolder, 0);
-        
+        al::PlayerHolder* pHolder = al::getScenePlayerHolder(curScene);
+        PlayerActorHakoniwa* player = al::tryGetPlayerActor(pHolder, 0);
+
         if (isDrawSolid)
             wire = solid;
         // negatives mess this up. fix this
         if (player) {
             wire.a = calcFadeoff(player, pos);
-            cyl.a =  calcFadeoff(player, pos);
+            cyl.a = calcFadeoff(player, pos);
         }
         if (al::isEqualString(shapeType, "AreaCubeBase")) { // origin is at the bottom
-            
+
             sead::PrimitiveDrawer::CubeArg shapeArea(sead::Vector3f(0, (scale.y / 2 * 1000), 0), scale * 1000.0f, wire);
             if (isDrawSolid)
                 renderer->drawCube(shapeArea);
@@ -53,7 +54,7 @@ bool tryDrawAreaGroup(al::Scene *curScene, char const *area, bool isDrawSolid = 
             renderer->drawWireCube(shapeArea);
         }
 
-        //if (player) cyl.a = .7-(5000/al::calcDistance(player, pos));
+        // if (player) cyl.a = .7-(5000/al::calcDistance(player, pos));
         if (al::isEqualString(shapeType, "AreaSphere")) {
             renderer->drawSphere8x16(sead::Vector3f(0, 0, 0), scale.x * 1000, cyl);
         }

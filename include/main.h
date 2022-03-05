@@ -5,7 +5,8 @@
 
 #include "debugMenu.h"
 
-class TransparentWall : public al::LiveActor {};
+class TransparentWall : public al::LiveActor {
+};
 
 extern bool showMenu;
 extern bool showAreas;
@@ -21,8 +22,3 @@ extern bool showTransparentWalls;
 extern bool enableFadeoff;
 
 extern bool isInGame;
-
-extern float minDist; // smoothly interpolate the alpha in the min and max distances- 0 to minDist is maxAlpha
-extern float maxDist;
-extern float maxAlpha;
-
