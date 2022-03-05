@@ -28,9 +28,13 @@ Releases in the releases tab.
 ## Credits
 
 [Shadów](https://github.com/shadowninja108 "Shadów") - helped me get sead::PrimitiveRenderer working
+
 [CraftyBoss](https://github.com/CraftyBoss "CraftyBoss") - shitload of headers and got sead::TextWriter working
+
 Mars2030 - wanted this the most
+
 [Fruityloops](https://github.com/fruityloops1), [OatmealDome](https://github.com/OatmealDome) - Tech support
+
 
 [Starlight](https://github.com/shadowninja108/Starlight) and all of its contributors
 Everybody at the [SMO Modding Hub](https://discord.gg/u2dfaQpDh5 "SMO Modding Hub")
