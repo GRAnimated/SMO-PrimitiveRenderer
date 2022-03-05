@@ -1,19 +1,23 @@
-#include "helpers.h"
 
-float calcFadeoff(al::LiveActor const *actor, sead::Vector3f pos2) {
-    if (enableFadeoff == false) return maxAlpha;
-    return (maxDist-al::calcDistance(actor, pos2))/maxDist * maxAlpha;
+#include "helpers.h"
+#include "constants.h"
+
+float calcFadeoff(al::LiveActor const* actor, sead::Vector3f pos2)
+{
+    if (enableFadeoff == false)
+        return constants::maxAlpha;
+    return (constants::maxDist - al::calcDistance(actor, pos2)) / constants::maxDist * constants::maxAlpha;
 }
 
 sead::Matrix34f MatrixFromYawPitchRollTrans(sead::Vector3f euler, sead::Vector3f trans)
 {
-    float cosY = cosf(euler.y);     // Yaw
+    float cosY = cosf(euler.y); // Yaw
     float sinY = sinf(euler.y);
 
-    float cosP = cosf(euler.x);     // Pitch
+    float cosP = cosf(euler.x); // Pitch
     float sinP = sinf(euler.x);
 
-    float cosR = cosf(euler.z);     // Roll
+    float cosR = cosf(euler.z); // Roll
     float sinR = sinf(euler.z);
 
     sead::Matrix34f mat = sead::Matrix34f::ident;
@@ -37,7 +41,8 @@ sead::Matrix34f MatrixFromYawPitchRollTrans(sead::Vector3f euler, sead::Vector3f
     return mat;
 }
 
-sead::Vector3f QuatToEuler(sead::Quatf quat) {
+sead::Vector3f QuatToEuler(sead::Quatf quat)
+{
 
     f32 x = quat.z;
     f32 y = quat.y;
