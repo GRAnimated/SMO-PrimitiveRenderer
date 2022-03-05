@@ -77,6 +77,8 @@ void stageSceneControl(StageScene *stageScene) {
     // (R) D-LEFT   > Toggle TransparentWalls
     // (R) D-RIGHT  > Toggle race miss areas
 
+    // (L+R) D-LEFT > Toggle alpha fade-off
+
     if (al::isPadHoldL(-1) && al::isPadHoldR(-1)) {
         if (al::isPadTriggerLeft(-1)) enableFadeoff = !enableFadeoff;
     } else if (al::isPadHoldL(-1)) {
